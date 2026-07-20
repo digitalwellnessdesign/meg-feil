@@ -1,0 +1,99 @@
+import type { CmsData } from '../types';
+
+/**
+ * Hardcoded baseline content matching the CMS shape.
+ * The page renders with this on first paint regardless of snapshot,
+ * cache, or live fetch status. Values mirror the live Google Sheet's
+ * intended content so the fallback is never visibly stale.
+ */
+export const fallback: CmsData = {
+  site: {
+    site_name: 'Megan Feil',
+    canonical: 'https://megfeil.com',
+    seo_title: 'Megan Feil — Content Designer and Writer',
+    seo_description:
+      'Megan Feil is a content designer and writer interested in where human wellbeing, technology, and everyday life meet.',
+    location: 'Raleigh, North Carolina',
+    portrait_path: '/images/megan-feil-homepage.jpg',
+    portrait_alt: 'Megan Feil smiling in a bright room with plants and books.',
+  },
+  homepage: {
+    greeting: "Hi, I’m Megan Feil",
+    bio: 'I’m a content designer and writer deeply interested in where human wellbeing, tech and everyday life meet.',
+    location: 'Based in Raleigh, North Carolina',
+    services_heading: 'Services',
+    services_disabled_label: 'Coming soon',
+    footer_note: '',
+  },
+  links: [
+    {
+      id: 'email',
+      order: 1,
+      label: 'Email',
+      url: 'mailto:hello@megfeil.com',
+      type: 'mailto',
+      state: 'disabled',
+      publish: true,
+      openInNewTab: false,
+    },
+    {
+      id: 'ux_portfolio',
+      order: 2,
+      label: 'UX portfolio',
+      secondary_label: 'Request access',
+      url: 'mailto:hello@megfeil.com?subject=UX%20portfolio%20access%20request&body=Hi%20Megan%2C%0A%0AI%E2%80%99d%20love%20to%20request%20access%20to%20your%20UX%20portfolio.%0A%0AThank%20you!',
+      type: 'mailto',
+      state: 'enabled',
+      publish: true,
+      openInNewTab: false,
+      email_subject: 'UX portfolio access request',
+      email_body: "Hi Megan,\n\nI'd love to request access to your UX portfolio.\n\nThank you!",
+    },
+    {
+      id: 'linkedin',
+      order: 3,
+      label: 'LinkedIn',
+      url: 'https://www.linkedin.com/',
+      type: 'external',
+      state: 'enabled',
+      publish: true,
+      openInNewTab: true,
+    },
+    {
+      id: 'substack',
+      order: 4,
+      label: 'Substack',
+      url: 'https://substack.com/',
+      type: 'external',
+      state: 'enabled',
+      publish: true,
+      openInNewTab: true,
+    },
+  ],
+  services: [
+    {
+      id: 'service_iphone',
+      order: 1,
+      title: 'Personal iPhone setups',
+      audience: 'Individuals',
+      description:
+        'A focused Ritual Reset to create a more intentional iPhone environment.',
+      url: 'https://www.digitalwellnessdesign.com/for-your-iphone',
+      state: 'disabled',
+      publish: true,
+      openInNewTab: true,
+    },
+    {
+      id: 'service_business_websites',
+      order: 2,
+      title: 'Wellness business websites',
+      audience: 'Wellness practitioners and small businesses',
+      description:
+        'Clear, lightweight websites that help people find, understand, and trust a wellness practice.',
+      url: 'https://www.digitalwellnessdesign.com/for-businesses',
+      state: 'disabled',
+      publish: true,
+      openInNewTab: true,
+    },
+  ],
+};
