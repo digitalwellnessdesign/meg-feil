@@ -9,9 +9,14 @@ interface PortraitProps {
  * because this is the LCP element. Never used as background, hero, banner,
  * or with text overlaid.
  */
+// Prefix root-relative paths with the Vite base so assets resolve under a
+// project subpath (e.g. /meg-feil/). Absolute URLs pass through unchanged.
+function resolveAsset(path: string): string {
+  return /^https?:\/\//.test(path) ? path : path.replace(/^\//, import.meta.env.BASE_URL);
+}
+
 export function Portrait({ alt, src }: PortraitProps) {
-  // src is configurable via CMS portrait_path; defaults to the bundled image.
-  const imgSrc = src && src.trim() ? src : '/images/megan-feil-homepage.jpg';
+  const imgSrc = resolveAsset(src && src.trim() ? src : '/images/megan-feil-homepage.jpg');
   const avifSrc = imgSrc.replace(/\.jpe?g$/i, '.avif');
   const webpSrc = imgSrc.replace(/\.jpe?g$/i, '.webp');
 
